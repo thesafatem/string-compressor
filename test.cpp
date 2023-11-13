@@ -52,15 +52,9 @@ void genThreeOccurencesTest(string name) {
 	mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 	vector<int> res;
 	int sz = 300;
-	vector<int> setik(301, 0);
-	for (int i = 0; i < sz; i++) {
-		int num = uniform_int_distribution<int>(1, 300)(rng);
-		while (setik[num]) {
-			num = uniform_int_distribution<int>(1, 300)(rng);
-		}
-		setik[num] = 1;
+	for (int i = 1; i <= sz; i++) {
 		for (int j = 0; j < 3; j++) {
-			res.push_back(num);
+			res.push_back(i);
 		}
 	}
 	shuffle(res.begin(), res.end(), rng);
